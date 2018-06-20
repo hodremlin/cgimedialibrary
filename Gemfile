@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
+ruby '2.4.4'
 
+gem 'mysql2', '~> 0.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '~> 4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,6 +44,10 @@ gem 'devise'
 gem 'acts-as-taggable-on', '~> 4.0'
 # Use CarrierWave for File Uploader
 gem 'carrierwave', '~> 1.0'
+# Use Font Awesome for Glyphicons
+gem 'font-awesome-rails'
+# Use Plyr for Videos
+gem 'plyr-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +55,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'rubocop'
+  gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

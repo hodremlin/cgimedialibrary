@@ -1,0 +1,2 @@
+module VerticalCategoriesHelper
+end

@@ -1,12 +1,18 @@
-class VideoPlayer < ActiveRecord::Base
-  belongs_to :user
+class VideoPlayer < MediaItem
+  include MediaItem::Scoping
 
-  acts_as_taggable
-  
-# CarrierWave Uploader
+  self.table_name = 'video_players'
+
+  # CarrierWave Uploader
   mount_uploader :video, VideoUploader
-  mount_uploader :video_thumbnail, VideoThumbnailUploader
-   
-  scope :published, ->{where.not(published_at: nil)}
-  scope :unpublished, ->{where(published_at: nil)}
+  mount_uploader :thumbnail, ThumbnailUploader
+
+  def thumbnail_url
+    thumbnail
+  end
+  
+  def thumbnail_button
+    "play.png"
+  end
 end
+

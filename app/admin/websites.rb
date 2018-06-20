@@ -1,6 +1,6 @@
 ActiveAdmin.register Website do
     
-    permit_params :title, :tag_list, :business_name, :pnotes_id, :web_url, :website_thumbnail, :vertical
+    permit_params :title, :tag_list, :business_name, :pnotes_id, :web_url, :thumbnail, :vertical_id, :featured, :website, :presentation_zone_url
     
     index do
       column :title
@@ -8,6 +8,7 @@ ActiveAdmin.register Website do
       column :business_name
       column :vertical
       column :tag_list
+      column :featured
       actions
     end
   
@@ -16,10 +17,14 @@ ActiveAdmin.register Website do
       input :title
       input :pnotes_id, :label => "PNotes Number"
       input :business_name, :label => "Business Name"
-      input :vertical, collection: ["Attorney", "Veterinarian", "Doctor"]
+      input :vertical_id, as: :select, collection: Vertical.all
       input :tag_list, :label => "Tags"
       input :web_url, :label => "Website URL"
-      input :website_thumbnail, :label => "Upload Thumbnail"
+      input :thumbnail, :label => "Upload Thumbnail"
+      input :website, :label => "Upload Website Image"
+      input :presentation_zone_url, :label => "Presentation Zone"
+      input :featured, as: :boolean
+      
     end
     actions
   end
@@ -29,10 +34,13 @@ ActiveAdmin.register Website do
       row :title
       row :pnotes_id, :label => "PNotes Number"
       row :business_name, :label => "Business Name"
-      row :vertical, collection: ["Attorney", "Veterinarian", "Doctor"]
+      row :vertical, :collection => Vertical.all
       row :tag_list, :label => "Tags"
       row :web_url, :label => "Website URL"
-      row :website_thumbnail, :label => "Thumbnail Uploaded"
+      row :thumbnail, :label => "Thumbnail Uploaded"
+      row :website, :label => "Website Image Uploaded"
+      row :featured
+      row :presentation_zone_url, :label => "Presentation Zone"
     end
     active_admin_comments
   end

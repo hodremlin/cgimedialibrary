@@ -1,0 +1,20 @@
+<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="background-image: url('<%= social.thumbnail %>'); height: 325px; background-position: center, center; z-index: 1; background-size: cover; background-repeat: none;">
+  <div class="description-bar">
+    <h5><%= social.title %></h5>
+    <h6><%= social.vertical&.title %></h6>
+      <% if user_signed_in? %>
+        <% if Favorite.find_by(favorited: social, user: current_user) %>
+          <%= link_to destroy_favorite_path(media_item: :social, id: social.id),class: "pull-right heart", method: :delete do %>
+            <%= fa_icon "heart" %>
+          <% end %>
+        <% else %>
+          <%= link_to create_favorite_path(media_item: :social, id: social.id), class: "pull-right heart", method: :post do %>
+            <%= fa_icon "heart-o" %>
+          <% end %>
+        <% end %>
+      <% end %>
+   </div>
+  <%= link_to image_tag("plus.png", :class => "center-block, play-button"), "#social_#{social.id}_modal", :data => { :toggle =>"modal" } %>
+</div>
+
+<%= render partial: "shared/social_modal", locals: { social: social } %>

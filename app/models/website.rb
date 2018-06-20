@@ -1,11 +1,13 @@
-class Website < ActiveRecord::Base
-  belongs_to :user
+class Website < MediaItem
+  include MediaItem::Scoping
 
-  acts_as_taggable
-  
-# CarrierWave Uploader
-  mount_uploader :website_thumbnail, WebsiteThumbnailUploader
-   
-  scope :published, ->{where.not(published_at: nil)}
-  scope :unpublished, ->{where(published_at: nil)}
+  self.table_name = 'websites'
+
+  # CarrierWave Uploader
+  mount_uploader :thumbnail, ThumbnailUploader
+  mount_uploader :website, WebsiteUploader
+
+  def thumbnail_button
+    "plus.png"
+  end
 end

@@ -1,0 +1,4 @@
+class VerticalCategoriesController < ApplicationController
+  
+end
+

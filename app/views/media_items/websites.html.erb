@@ -1,0 +1,6 @@
+ <%= render 'layouts/websites_header' %>
+ <div class="row">
+  <% @websites.reverse.each do | website | %>
+    <%= render partial: 'shared/website_item', locals: { website: website } %>
+  <% end %>
+</div>

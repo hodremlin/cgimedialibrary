@@ -1,0 +1,39 @@
+<div class="modal fade" id="logo_<%= logo.id %>_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h1><%= logo.title %></h1>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row flex">
+            
+            <div class="col-md-8">
+              <%= image_tag logo.logo, :class => "center-block, full-logo, img-responsive" %>
+            </div>
+          
+            <div class="col-md-3 col-md-offset-1">
+              <h3><%= logo.title %></h3>
+              <div class="white-divider"></div>
+              <h5 class="blue">Vertical</h5>
+              <p><%= logo.vertical&.title %></p>
+              <h5 class="blue">Related Tags</h5>
+              <p><%= logo.tag_list %></p>
+              <% if user_signed_in? %>
+                <div class="white-divider"></div>
+              <h5 class="blue">PNotes ID</h5>
+              <p><%= logo.pnotes_id %></p>
+                <div class="white-divider"></div>
+              <%= link_to "Presentation Zone", logo.presentation_zone_url, :class => "btn btn-info", target: "_blank" %>
+              <% end %>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

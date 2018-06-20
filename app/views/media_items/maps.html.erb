@@ -1,0 +1,6 @@
+<%= render 'layouts/map_header' %>
+<div class="row">
+  <% @maps.reverse.each do | map | %>
+    <%= render partial: 'shared/map_item', locals: { map: map } %>
+  <% end %>
+</div>

@@ -1,0 +1,6 @@
+<%= render 'layouts/social_header' %>
+<div class="row">
+  <% @socials.reverse.each do | social | %>
+    <%= render partial: 'shared/social_item', locals: {social: social } %>
+  <% end %>
+</div>

@@ -10,3 +10,7 @@ module ApplicationHelper
     end
   end
 end
+
+def website_frame(url)
+  content_tag(:iframe, '', src: url, width: 560, height: 315, frameborder: 0)     
+end

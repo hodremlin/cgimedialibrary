@@ -1,9 +1,10 @@
-class VideoPlayersController < InheritedResources::Base
+class VideoPlayersController < ApplicationController
 
-  private
-
-    def video_player_params
-      params.require(:video_player).permit(:title, :published_at, :vertical, :business_name, :pnotes_id, :video, :video_thumbnail)
-    end
+  
+  def show
+    @video = VideoPlayer.find(params[:id])
+    headers['Content-Type'] = 'video/mp4'
+    headers['X-Accel-Redirect'] = "#{@video.video.file.file.rpartition('/').last}"
+    render nothing: true
+  end
 end
-

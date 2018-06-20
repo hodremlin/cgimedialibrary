@@ -1,0 +1,17 @@
+<%= form_for(@vertical_category) do |f| %>
+  <% if @vertical_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vertical_category.errors.count, "error") %> prohibited this vertical_category from being saved:</h2>
+
+      <ul>
+      <% @vertical_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,96 +1,23 @@
 <header class="navbar navbar-inverse">
-  <div class="container">
-    <%= link_to "CGI MEDIA LIBRARY", '#', id: "logo" %>
+  <div class="container-fluid">
+    <%= link_to "CGI MEDIA LIBRARY", root_path, id: "logo" %>
     <nav>
+      <ul class="nav navbar-nav">
+            <li><%= link_to 'View All'.html_safe, root_path %></li>
+            <li><%= link_to 'Videos'.html_safe, video_players_path %></li>
+            <li><%= link_to 'Websites'.html_safe, websites_path %></li> 
+            <li><%= link_to 'Social Media'.html_safe, socials_path %></li>
+            <li><%= link_to 'Logos'.html_safe, logos_path %></li>
+            <li><%= link_to 'Maps'.html_safe, maps_path %></li>
+            <li><%= link_to "ReviewTube",   '#' %></li>
+            <li><%= link_to 'Banners'.html_safe, banners_path %></li>
+  		</ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   '#' %></li>
-        <li><%= link_to "Featured",   '#' %></li>
-        <li><%= link_to "Log in", new_user_session_url %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "My Favorites",   '/favorites', class: "white-link" %></li>
+        <% end %>
+          <li class="featured"><%= link_to "Featured", featured_path, class: "white-link" %></li>
       </ul>
     </nav>
   </div>
 </header>
-<nav class="navbar">
-  <div id="black-nav" class="secondary-nav">
-    <div class="container">
-      <nav>
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Verticals <b class="caret"></b></a>
-            <ul class="dropdown-menu multi-level">
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                        <ul class="dropdown-menu">
-                          <li class="dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Videos <b class="caret"></b></a>
-            <ul class="dropdown-menu multi-level">
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Websites <b class="caret"></b></a>
-            <ul class="dropdown-menu multi-level">
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Logos <b class="caret"></b></a>
-            <ul class="dropdown-menu multi-level">
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-            <ul class="dropdown-menu multi-level">
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><%= link_to "Auto",   '#' %></li>
-          <li><%= link_to "Childcare",   '#' %></li>
-          <li><%= link_to "Contractors",   '#' %></li>
-          <li><%= link_to "Medical",   '#' %></li>
-          <li><%= link_to "Test",   '#' %></li>
-          <li><%= link_to "Test",   '#' %></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</nav>

@@ -1,0 +1,6 @@
+<%= render 'layouts/banner_header' %>
+<div class="row">
+  <% @banners.reverse.each do | banner | %>
+    <%= render partial: 'shared/banner_item', locals: { banner: banner } %>
+  <% end %>
+</div>

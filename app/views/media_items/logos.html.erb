@@ -1,0 +1,6 @@
+<%= render 'layouts/logo_header' %>
+<div class="row">
+  <% @logos.reverse.each do | logo | %>
+    <%= render partial: 'shared/logo_item', locals: { logo: logo } %>
+  <% end %>
+</div>

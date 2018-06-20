@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518151056) do
+ActiveRecord::Schema.define(version: 20180614194007) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -28,6 +28,64 @@ ActiveRecord::Schema.define(version: 20180518151056) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "banners", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "published_at"
+    t.string   "business_name"
+    t.integer  "pnotes_id"
+    t.integer  "vertical_id"
+    t.string   "thumbnail"
+    t.string   "banner"
+    t.string   "presentation_zone_url"
+    t.boolean  "featured"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "favorited_id"
+    t.string   "favorited_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "favorites", ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
+  create_table "featureds", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logos", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "published_at"
+    t.string   "business_name"
+    t.integer  "pnotes_id"
+    t.integer  "vertical_id"
+    t.string   "thumbnail"
+    t.boolean  "featured"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "logo"
+    t.string   "presentation_zone_url"
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "published_at"
+    t.string   "business_name"
+    t.integer  "pnotes_id"
+    t.integer  "vertical_id"
+    t.string   "thumbnail"
+    t.string   "map"
+    t.string   "presentation_zone_url"
+    t.boolean  "featured"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -38,6 +96,20 @@ ActiveRecord::Schema.define(version: 20180518151056) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "socials", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "published_at"
+    t.string   "business_name"
+    t.integer  "pnotes_id"
+    t.integer  "vertical_id"
+    t.string   "thumbnail"
+    t.string   "social_post"
+    t.string   "presentation_zone_url"
+    t.boolean  "featured"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -88,28 +160,46 @@ ActiveRecord::Schema.define(version: 20180518151056) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 
+  create_table "vertical_categories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "verticals", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "vertical_category_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "video_players", force: :cascade do |t|
     t.string   "title"
     t.datetime "published_at"
     t.string   "business_name"
-    t.string   "pnotes_id"
-    t.string   "vertical"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "pnotes_id"
     t.string   "video"
-    t.string   "video_thumbnail"
+    t.string   "thumbnail"
+    t.integer  "vertical_id"
+    t.boolean  "featured"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "presentation_zone_url"
   end
 
   create_table "websites", force: :cascade do |t|
     t.string   "title"
     t.datetime "published_at"
     t.string   "business_name"
-    t.string   "pnotes_id"
-    t.string   "vertical"
+    t.integer  "pnotes_id"
+    t.string   "thumbnail"
     t.string   "web_url"
-    t.string   "website_thumbnail"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "vertical_id"
+    t.boolean  "featured"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "website"
+    t.string   "presentation_zone_url"
   end
 
 end

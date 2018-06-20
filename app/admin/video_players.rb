@@ -1,7 +1,7 @@
 ActiveAdmin.register VideoPlayer do
   menu label: "Videos"
   
-  permit_params :title, :tag_list, :business_name, :pnotes_id, :video, :video_thumbnail, :vertical
+  permit_params :title, :tag_list, :business_name, :pnotes_id, :video, :thumbnail, :vertical_id, :featured, :presentation_zone_url
   
     index do
       column :title
@@ -9,6 +9,7 @@ ActiveAdmin.register VideoPlayer do
       column :business_name
       column :vertical
       column :tag_list
+      column :featured
       actions
     end
   
@@ -17,10 +18,12 @@ ActiveAdmin.register VideoPlayer do
       input :title
       input :pnotes_id, :label => "PNotes Number"
       input :business_name, :label => "Business Name"
-      input :vertical, collection: ["Attorney", "Veterinarian", "Doctor"]
+      input :vertical_id, as: :select, collection: Vertical.all
       input :tag_list, :label => "Tags"
       input :video, :label => "Upload Video"
-      input :video_thumbnail, :label => "Upload Thumbnail"
+      input :thumbnail, :label => "Upload Thumbnail"
+      input :presentation_zone_url, :label => "Presentation Zone"
+      input :featured, as: :boolean
     end
     actions
   end
@@ -30,10 +33,12 @@ ActiveAdmin.register VideoPlayer do
       row :title
       row :pnotes_id, :label => "PNotes Number"
       row :business_name, :label => "Business Name"
-      row :vertical, collection: ["Attorney", "Veterinarian", "Doctor"]
+      row :vertical
       row :tag_list, :label => "Tags"
       row :video, :label => "Video Uploaded"
-      row :video_thumbnail, :label => "Thumbnail Uploaded"
+      row :thumbnail, :label => "Thumbnail Uploaded"
+      row :presentation_zone_url, :label => "Presentation Zone"
+      row :featured
     end
     active_admin_comments
   end

@@ -1,0 +1,7 @@
+<%= render 'layouts/index_header' %>
+
+<div class="row">
+  <% @items.reverse.each do | item | %>
+    <%= render partial: "shared/#{item.class.name.underscore}_item", locals: { :"#{item.class.name.underscore}" => item } %>
+  <% end %>
+</div>

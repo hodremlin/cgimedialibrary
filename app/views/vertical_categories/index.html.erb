@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vertical Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vertical_categories.each do |vertical_category| %>
+      <tr>
+        <td><%= link_to 'Show', vertical_category %></td>
+        <td><%= link_to 'Edit', edit_vertical_category_path(vertical_category) %></td>
+        <td><%= link_to 'Destroy', vertical_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vertical category', new_vertical_category_path %>

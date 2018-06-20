@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  has_many :media_items
+  
+  has_many :favorites
+  has_many :favorite_media_items, through: :favorites, source: :favorited, source_type: 'MediaItem'
+  has_many :favorite_websites, through: :favorites, source: :favorited, source_type: 'Website'
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
