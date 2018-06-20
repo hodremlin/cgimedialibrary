@@ -16,4 +16,8 @@
 !/log/.keep
 /tmp
 
-public/uploads
+/config/application.yml
+/config/database.yml
+/config/fog.yml
+
+/public/uploads
