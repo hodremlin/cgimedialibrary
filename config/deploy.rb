@@ -7,7 +7,7 @@ set :repo_url,    'git@github.com:hodremlin/cgimedialibrary.git'
 set :domain,      '172.99.68.97'
 
 append :linked_dirs, 'log', 'tmp'
-append :linked_files, 'config/application.yml', 'config/database.yml', 'config/fog.yml'
+append :linked_files, '.env', 'config/application.yml', 'config/database.yml', 'config/fog.yml'
 
 ## rbenv config
 set :rbenv_type,   :user
