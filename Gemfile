@@ -49,6 +49,9 @@ gem 'font-awesome-rails'
 # Use Plyr for Videos
 gem 'plyr-rails'
 
+# JS runtime for compiling assets
+gem 'mini_racer'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
