@@ -11,7 +11,7 @@ app_dir = File.expand_path('../..', __FILE__)
 rails_env = ENV['RAILS_ENV'] || 'production'
 environment rails_env
 
-socket_location     = "#{app_dir}/tmp/sockets/puma.sock"
+socket_location     = "unix://#{app_dir}/tmp/sockets/puma.sock"
 pidfile_location    = "#{app_dir}/tmp/pids/puma.pid"
 state_path_location = "#{app_dir}/tmp/pids/puma.state"
 
