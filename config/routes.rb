@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   root 'media_items#home'
   
+  as :user do
+    get 'login', :to => 'devise/sessions#new'
+  end
+  
   # MediaItem
   get 'banners',   to: 'media_items#banners',    as: :banners
   get 'logos',     to: 'media_items#logos',      as: :logos

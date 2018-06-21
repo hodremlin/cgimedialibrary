@@ -10,7 +10,6 @@ ActiveAdmin.setup do |config|
     super_admin.site_title = "NOW ENTERING GOD MODE"
   end
 
-
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -59,8 +58,9 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_user!
-
+  #config.authentication_method = :authenticate_user!
+  config.authentication_method = :authenticate_active_admin_user!
+  config.logout_link_method    = :delete
   # == User Authorization
   #
   # Active Admin will automatically call an authorization

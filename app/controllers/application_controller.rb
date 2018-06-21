@@ -9,13 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
   
-  def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope == :user
-      root_path
-    elsif resource_or_scope == :admin
-      admin_root_path
-    else
-      root_path
+  def authenticate_active_admin_user!
+    authenticate_user!
+    unless current_user.admin?
+      redirect_to root_path
     end
-  end  
+  end
 end
