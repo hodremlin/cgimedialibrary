@@ -21,4 +21,5 @@ class User < ActiveRecord::Base
   end
   
   validates :username, presence: true, uniqueness: true, format: /\A[a-zA-Z0-9_\.]*\z/
+  
 end

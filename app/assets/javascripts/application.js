@@ -16,6 +16,8 @@
 //= require_tree 
 //= require bootstrap
 //= require plyr
+//= require vendor/jquery-menu-aim
+//= require vendor/jquery.typeahead.min
 
   document.addEventListener("turbolinks:load", function() {
     const player = new Plyr('#player');

@@ -11,12 +11,12 @@
         <div class="container">
           <div class="row flex">
             
-            <!--<div class="col-md-9">-->
-            <!--  <video poster="<%= video_player.thumbnail_url %>" id="video_player" playsinline controls>-->
-            <!--    <source src="/video_players/<%= video_player.id %>" type="video/mp4">-->
-            <!--  </video>-->
+            <div class="col-md-9">
+              <video poster="<%= video_player.thumbnail_url %>" id="video_player" playsinline controls>
+                <source src="<%= video_player.video_url %>" type="video/mp4">
+              </video>
 
-            <!--</div>-->
+            </div>
           
             <div class="col-md-3">
               <h3 id="video_title"><%= video_player.title %></h3>

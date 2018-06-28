@@ -80,7 +80,7 @@ p {
   letter-spacing: 5px;
   
   &:hover {
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     letter-spacing: 5px;
     background-color: transparent;
@@ -195,6 +195,10 @@ p {
     }
 }
 
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #fff !important;
+}
+
 .navbar-nav > li {
     float: left;
     padding-right: 5px;
@@ -250,7 +254,6 @@ li.featured {
     min-width: 160px;
     font-size: 12px;
     text-align: left;
-    background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.176) 0px 6px 12px;
     background-clip: padding-box;
     padding: 17px 0px;
@@ -258,32 +261,32 @@ li.featured {
     list-style: none;
     border-width: 1px;
     border-style: solid;
-    border-color: #ccc;
+    border-color: #000;
     border-image: initial;
     border-radius: 0px;
 }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, a:hover {
     text-decoration: none;
-    color: #000;
+    color: #0a8fcd !important;
     background-color: transparent;
 }
 
 
-li.dropdown:hover > .dropdown-menu {
-    display: block;
-}
+//li.dropdown:hover > .dropdown-menu {
+//    display: block;
+//}
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+//.dropdown:hover .dropdown-content {
+//  display: block;
+//}
 
 .dropdown-menu > li > a {
-    display: block;
+//    display: block;
     clear: both;
     font-weight: normal;
     line-height: 1.42857;
-    color: #0a8fcd;
+    color: #fff;
     white-space: nowrap;
     padding: 3px 20px;
     font-family: "Lato", sans-serif;
@@ -396,7 +399,7 @@ label {
 .dropdown-menu-large > li ul > li > a:hover,
 .dropdown-menu-large > li ul > li > a:focus {
   text-decoration: none;
-  color: #262626;
+  color: #0a8fcd;
   background-color: #f5f5f5;
 }
 .dropdown-menu-large .disabled > a,
@@ -568,6 +571,10 @@ button.close:hover {
   }
 }
 
+a.btn-info {
+  color: #fff !important;
+}
+
 .form-inline .input-group {
     display: inline-table;
     vertical-align: middle;
@@ -575,13 +582,22 @@ button.close:hover {
 }
 
 .dropdown-menu {
-    min-width: 800px;
+    min-width: 200px;
+    background-color: #222;
+}
+
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, a:hover, a:active {
+    background-color: #000 !important;
 }
 
 .heart {
   margin-top: -40px;
   font-size: 20px;
   color: #F7669A !important;
+  &:hover {
+    color: #F7669A !important;
+  }
 }
 
 a:hover {
@@ -596,4 +612,97 @@ a:hover {
       text-decoration: none;
       font-family: "Lato", sans-serif;
     }
+}
+
+.nav > li > a {
+    padding: 15px 7px;
+}
+
+#submenu-vertical {
+    display: block;
+    top: -1px;
+    left: 797px;
+    height: 173px;
+   width: 300px;
+    padding: 10px;
+    width: 300px;
+
+}
+
+.maintainHover {
+  text-decoration: none !important;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #0a8fcd !important;
+  letter-spacing: 1px;
+  &:hover {
+    color: #000 !important;
+  }
+}
+
+.vertical-toggle {
+  &:hover {
+    border-left: 3px solid #0a8fcd;
+  }
+}
+
+.cat-toggle {
+  padding: 10px; 
+  border-top: 1px solid #cccccc;
+  
+  &:hover {
+  background-color: #f1f1f1;
+  border-left: 3px solid #0a8fcd;
+  }
+}
+
+li::before {
+  display: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 300 !important;
+    display: none;
+    padding: 1px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-break: auto;
+    line-height: 1.428571429;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-shadow: rgba(0, 0, 0, 0.176) 0px 5px 6px;
+
+}
+
+@media only screen and (max-width: 400px) {
+  #logo {
+      font-size: 1.5em;
+      color: #fff;
+      text-transform: uppercase;
+      padding-top: 15px;
+      font-weight: 300;
+      text-decoration: none;
+      font-family: "Lato", sans-serif;
+      letter-spacing: 5px;
+      padding-bottom: 20px;
+      text-align: center;
+      line-height: 1.4;
+  }
 }

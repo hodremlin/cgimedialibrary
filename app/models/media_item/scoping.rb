@@ -29,9 +29,15 @@ class MediaItem < ActiveRecord::Base
           
           tagged_with(tags)
         }
+        
+        scope :with_keywords, lambda { |keywords|
+          return if keywords.blank?
 
-        scope :filtered, lambda { |category, vertical, tags, featured|
-          with_category(category).with_vertical(vertical).with_tags(tags).featured(featured)
+          where('title LIKE ?', "%#{keywords}%")
+        }
+
+        scope :filtered, lambda { |category, vertical, tags, keywords, featured|
+          with_category(category).with_vertical(vertical).with_tags(tags).with_keywords(keywords).featured(featured)
         }
 
         scope :favorited_by, lambda { |user|

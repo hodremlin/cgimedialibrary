@@ -4,11 +4,8 @@ Rails.application.routes.draw do
 
   root 'media_items#home'
   
-  as :user do
-    get 'login', :to => 'devise/sessions#new'
-  end
-  
   # MediaItem
+  get 'reviewtube',   to: 'media_items#reviewtube',    as: :reviewtubes
   get 'banners',   to: 'media_items#banners',    as: :banners
   get 'logos',     to: 'media_items#logos',      as: :logos
   get 'maps',      to: 'media_items#maps',       as: :maps
@@ -18,6 +15,7 @@ Rails.application.routes.draw do
   get 'search',    to: 'media_items#search',     as: :search
   get 'favorites', to: 'media_items#favorites',  as: :favorites
   get 'social_media', to: 'media_items#social',  as: :socials
+ 
   
   # Favorite
   post   '/favorites/:media_item/:id/create',  to: 'favorites#create',  as: :create_favorite

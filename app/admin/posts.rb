@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-
+  menu false
   permit_params :title, :body, :published_at, :user_id, :tag_list
   
   scope :all

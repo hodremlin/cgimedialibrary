@@ -8,5 +8,7 @@ class MediaItem < ActiveRecord::Base
 
   acts_as_taggable
 
-  
+  def self.search(search)
+    where("title LIKE ?", "%#{search}%")
+  end
 end
