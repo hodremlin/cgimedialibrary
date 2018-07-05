@@ -1,0 +1,68 @@
+<div class="modal fade" id="reviewtube_<%= reviewtube.id %>_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h1 id="video_title"><%= reviewtube.title %></h1>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row flex">
+            
+            <div class="col-lg-9 col-md-8">
+                <video id="reviewtube_<%= reviewtube.id %>_player" class="video-js cgi-video" controls preload="auto" width="800" poster="<%= reviewtube.thumbnail_url %>" data-setup='{}'>
+                   <source src="<%= reviewtube.reviewtube_url %>" type="video/mp4"></source>
+                </video>
+            </div>
+          
+            <div class="col-lg-3 col-md-4">
+              <h3 id="video_title"><%= reviewtube.title %></h3>
+              <div class="white-divider"></div>
+              <h5 class="blue">Vertical</h5>
+              <p><%= reviewtube.vertical&.title %></p>
+              <h5 class="blue">Related Tags</h5>
+              <p><%= reviewtube.tag_list %></p>
+              <% if user_signed_in? %>
+                <div class="white-divider"></div>
+              <h5 class="blue">PNotes ID</h5>
+              <p><%= reviewtube.pnotes_id %></p>
+                <div class="white-divider"></div>
+              <%= link_to "Presentation Zone", reviewtube.presentation_zone_url, :class => "btn btn-info", target: "_blank" %>
+              <% end %>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var player = videojs('reviewtube_<%= reviewtube.id %>_player');
+
+    player.brand({
+      image: '<%= asset_path('reviewtube-logo.png') %>',
+      title: "Reviewtube",
+      destination: "http://www.google.com",
+      destinationTarget: "_top"
+    });
+    
+    player.dock({
+      title: '<%= reviewtube.title %>',
+      description: '<%= reviewtube.vertical&.title %>'
+    });
+    
+    // Trigger video pause on modal close
+    $('body').on('hidden.bs.modal', '.modal', function () {
+      player.pause();
+    });
+    
+    $(document).on('click', '.vjs-big-play-button', function(){
+      $(this).siblings(".vjs-dock-text").hide(10);
+    });
+  });
+</script>

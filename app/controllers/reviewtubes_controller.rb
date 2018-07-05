@@ -1,0 +1,4 @@
+class ReviewtubesController  <  ApplicationController
+
+end
+

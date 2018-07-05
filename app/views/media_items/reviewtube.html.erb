@@ -1,0 +1,6 @@
+<%= render 'layouts/video_header' %>
+ <div class="row">
+  <% @reviewtubes.reverse.each do | reviewtube | %>
+    <%= render partial: 'shared/reviewtube_item', locals: { reviewtube: reviewtube } %>
+  <% end %>
+</div>

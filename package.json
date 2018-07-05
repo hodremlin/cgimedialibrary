@@ -1,0 +1,21 @@
+{
+  "name": "cgi-media-library",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hodremlin/cgimedialibrary"
+  },
+  "author": "Allison Hartman",
+  "dependencies": {
+    "video.js": "^7.0.0",
+    "videojs-brand": "0.0.4",
+    "videojs-dock": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^3.10.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
