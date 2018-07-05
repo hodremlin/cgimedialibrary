@@ -1,5 +1,5 @@
 ActiveAdmin.register Social do
-    
+    menu label: "Social Media"
     permit_params :title, :tag_list, :business_name, :pnotes_id, :thumbnail, :vertical_id, :featured, :social_post, :presentation_zone_url
     
     index do

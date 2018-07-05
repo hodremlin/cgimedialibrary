@@ -2,8 +2,27 @@
   <div id="blue-nav" class="tertiary-nav">
     <div class="container-fluid">
       <nav>
-       
         <ul class="nav navbar-nav navbar-left hidden-xs">
+            <li class="dropdown dropdown-large">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Media <b class="caret"></b></a>
+            <!--
+              jQuery-menu-aim: this <ul> defines the dropdown main menu and its contents.
+              This is just one of many possible examples for defining the menu's HTML.
+              jQuery-menu-aim is agnostic to your HTML structure, it only fires events to
+              be used as you please.
+            -->
+              <ul class="dropdown-menu" role="menu">
+                  <li class="media-toggle"><%= link_to 'View All'.html_safe, root_path %></li>
+                  <li class="media-toggle"><%= link_to 'Videos'.html_safe, video_players_path %></li>
+                  <li class="media-toggle"><%= link_to 'Websites'.html_safe, websites_path %></li> 
+                  <li class="media-toggle"><%= link_to 'Social Media'.html_safe, socials_path %></li>
+                  <li class="media-toggle"><%= link_to 'Logos'.html_safe, logos_path %></li>
+                  <li class="media-toggle"><%= link_to 'Maps'.html_safe, maps_path %></li>
+                  <li class="media-toggle"><%= link_to 'Reviewtube'.html_safe, reviewtubes_path %></li>
+                  <li class="media-toggle"><%= link_to 'Banners'.html_safe, banners_path %></li>
+        		  </ul>
+        		</li>
+          
           <li class="dropdown dropdown-large">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <b class="caret"></b></a>
           <!--
@@ -34,13 +53,27 @@
              <% end %>
              </li>
     	  	</ul>
-    	  	
-    	  	<li><p>TAGS <%= fa_icon "angle-right" %></p></li>
-          <li><%= link_to "View All",   params.merge(tag: nil) %></li>
-          <% ActsAsTaggableOn::Tag.most_used(5).each do |tag| %>
-            <li><%= link_to tag.name,   params.merge(tag: tag.name) %></li>
+        		
+        		<li class="dropdown dropdown-large hidden-lg hidden-md">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tags <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li class="media-toggle"><%= link_to "View All",   params.merge(tag: nil) %></li>
+                <% ActsAsTaggableOn::Tag.most_used(10).each do |tag| %>
+                  <li class="media-toggle"><%= link_to tag.name,   params.merge(tag: tag.name) %></li>
+                <% end %>
+        		  </ul>
+        		</li>
+        		
+    	  	<li class="hidden-xs hidden-sm"><p>TAGS <%= fa_icon "angle-right" %></p></li>
+          <li class="hidden-xs hidden-sm"><%= link_to "View All",   params.merge(tag: nil) %></li>
+          <% ActsAsTaggableOn::Tag.most_used(10).each do |tag| %>
+            <li class="hidden-xs hidden-sm"><%= link_to tag.name,   params.merge(tag: tag.name) %></li>
           <% end %>
     		</ul>
+    		
+
+    		
+    		
     		<ul class="nav navbar-nav navbar-right">
     			<li>
             <%= form_tag(root_path, :method => "get", class: 'navbar-form navbar-left') do %>  
@@ -57,9 +90,6 @@
     </div>
   </div>
 </nav>
-
-
-
 
 <script>
   var $menu = $(".dropdown-menu");

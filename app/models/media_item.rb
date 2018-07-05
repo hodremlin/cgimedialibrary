@@ -11,4 +11,14 @@ class MediaItem < ActiveRecord::Base
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
   end
+  
+  def as_json(opts = {})
+    super(
+      include: {
+        category: { only: :title },
+        vertical: { only: :title },
+        user: { only: :username }
+      }
+    )
+  end
 end

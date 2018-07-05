@@ -2,16 +2,6 @@
   <div class="container-fluid">
     <%= link_to "CGI MEDIA LIBRARY", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav hidden-xs">
-            <li><%= link_to 'View All'.html_safe, root_path %></li>
-            <li><%= link_to 'Videos'.html_safe, video_players_path %></li>
-            <li><%= link_to 'Websites'.html_safe, websites_path %></li> 
-            <li><%= link_to 'Social Media'.html_safe, socials_path %></li>
-            <li><%= link_to 'Logos'.html_safe, logos_path %></li>
-            <li><%= link_to 'Maps'.html_safe, maps_path %></li>
-            <li><%= link_to 'Reviewtube'.html_safe, reviewtubes_path %></li>
-            <li><%= link_to 'Banners'.html_safe, banners_path %></li>
-  		</ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? && current_user.admin? %>
         <li class="hidden-xs"> <%= link_to "Dashboard", '/admin', class: "white-link" %></li>

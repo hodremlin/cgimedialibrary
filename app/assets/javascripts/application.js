@@ -15,10 +15,8 @@
 //= require turbolinks
 //= require_tree 
 //= require bootstrap
-//= require plyr
 //= require vendor/jquery-menu-aim
 //= require vendor/jquery.typeahead.min
-
-  document.addEventListener("turbolinks:load", function() {
-    const player = new Plyr('#player');
-  });
+//= require vendor/video.min
+//= require vendor/videojs-brand.min
+//= require vendor/videojs-dock.min

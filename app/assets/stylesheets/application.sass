@@ -10,10 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require vendor/jquery.typeahead.min
+ *= require vendor/video-js.min
+ *= require vendor/videojs-dock
+ *= require vendor/videojs-brand
  *= require_tree .
  *= require_self
- *= require plyr
+ *= require cgi-video
+ *= stub "active_admin"
  */
-
 @import font-awesome
-@import vendor/jquery.typeahead.min

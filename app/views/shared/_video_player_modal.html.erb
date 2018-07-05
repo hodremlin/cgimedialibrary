@@ -12,10 +12,9 @@
           <div class="row flex">
             
             <div class="col-md-9">
-              <video poster="<%= video_player.thumbnail_url %>" id="video_player" playsinline controls>
-                <source src="<%= video_player.video_url %>" type="video/mp4">
+              <video id="video_<%= video_player.id %>_player" class="video-js cgi-video" controls preload="auto" width="800" poster="<%= video_player.thumbnail_url %>" data-setup='{}'>
+                <source src="<%= video_player.video_url %>" type="video/mp4"></source>
               </video>
-
             </div>
           
             <div class="col-md-3">
@@ -40,3 +39,30 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var player = videojs('video_<%= video_player.id %>_player');
+
+    player.brand({
+      image: '<%= asset_path('cgi-logo.png') %>',
+      title: "CGI Communications",
+      destination: "http://www.google.com",
+      destinationTarget: "_top"
+    });
+    
+    player.dock({
+      title: '<%= video_player.title %>',
+      description: '<%= video_player.vertical&.title %>'
+    });
+    
+    // Trigger video pause on modal close
+    $('body').on('hidden.bs.modal', '.modal', function () {
+      player.pause();
+    });
+        
+    $(document).on('click', '.vjs-big-play-button', function(){
+      $(this).siblings(".vjs-dock-text").hide(10);
+    });
+  });
+</script>

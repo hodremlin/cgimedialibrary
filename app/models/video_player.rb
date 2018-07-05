@@ -2,6 +2,7 @@ class VideoPlayer < MediaItem
   include MediaItem::Scoping
 
   self.table_name = 'video_players'
+  acts_as_taggable_on :video_players
 
   # CarrierWave Uploader
   mount_uploader :video, VideoUploader

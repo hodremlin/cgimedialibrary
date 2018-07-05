@@ -249,7 +249,7 @@ li.featured {
     top: 100%;
     left: 0px;
     z-index: 1000;
-    display: none;
+
     float: left;
     min-width: 160px;
     font-size: 12px;
@@ -647,6 +647,17 @@ a:hover {
   }
 }
 
+.media-toggle {
+  padding-top: 7px; 
+  padding-bottom: 7px;
+  font-size: 12px;
+  border-top: 1px solid #4e4e4e;
+  &:hover, &:active, &:focus {
+    border-left: 3px solid #0a8fcd;
+    background-color: #000;
+  }
+}
+
 .cat-toggle {
   padding: 10px; 
   border-top: 1px solid #cccccc;
@@ -706,3 +717,5 @@ ul {
       line-height: 1.4;
   }
 }
+
+
