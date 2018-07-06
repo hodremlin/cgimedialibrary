@@ -12,7 +12,7 @@
           <div class="row flex">
             
             <div class="col-lg-9 col-md-8">
-                <video id="reviewtube_<%= reviewtube.id %>_player" class="video-js cgi-video" controls preload="auto" width="800" poster="<%= reviewtube.thumbnail_url %>" data-setup='{}'>
+                <video id="reviewtube_<%= reviewtube.id %>_player" class="video-js cgi-video" controls preload="auto" poster="<%= reviewtube.thumbnail_url %>" data-setup='{}'>
                    <source src="<%= reviewtube.reviewtube_url %>" type="video/mp4"></source>
                 </video>
             </div>

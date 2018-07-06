@@ -12,7 +12,7 @@
           <div class="row flex">
             
             <div class="col-md-9">
-              <video id="video_<%= video_player.id %>_player" class="video-js cgi-video" controls preload="auto" width="800" poster="<%= video_player.thumbnail_url %>" data-setup='{}'>
+              <video id="video_<%= video_player.id %>_player" class="video-js cgi-video" controls preload="auto" poster="<%= video_player.thumbnail_url %>" data-setup='{}'>
                 <source src="<%= video_player.video_url %>" type="video/mp4"></source>
               </video>
             </div>

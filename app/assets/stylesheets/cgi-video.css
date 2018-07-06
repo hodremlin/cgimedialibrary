@@ -296,15 +296,22 @@
     line-height: 1.5;
 }
 
-@media only screen and (max-width: 768px){
-  .my-player-dimensions {
+
+.video-js {
+    width: 720px;
+    height: 400px;
+}
+
+
+@media only screen and (max-width: 800px){
+  .video-js {
       width: 400px;
       height: 225px;
   }
 }
 
 @media only screen and (max-width: 510px){
-  .my-player-dimensions{      
+  .video-js{      
     width: 350px;
     height: 225px;
       
