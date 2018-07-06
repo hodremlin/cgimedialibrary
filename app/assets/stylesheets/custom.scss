@@ -625,7 +625,6 @@ a:hover {
     left: 797px;
     padding: 10px;
     width: 300px;
-
 }
 
 .maintainHover {
@@ -699,7 +698,7 @@ ul {
     border: 1px solid #ccc;
     border-radius: 0px;
     box-shadow: rgba(0, 0, 0, 0.176) 0px 5px 6px;
-
+    height: auto !important;
 }
 
 @media only screen and (max-width: 400px) {
