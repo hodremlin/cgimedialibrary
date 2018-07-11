@@ -5,6 +5,7 @@ class Reviewtube < MediaItem
 
   # CarrierWave Uploader
   mount_uploader :reviewtube, ReviewtubeUploader
+  mount_uploader :mobile_video, MobileVideoUploader
   mount_uploader :thumbnail, ThumbnailUploader
 
   def thumbnail_url

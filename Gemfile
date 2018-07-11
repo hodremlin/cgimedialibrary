@@ -49,6 +49,8 @@ gem 'fog-rackspace'
 gem 'font-awesome-rails'
 # Use Plyr for Videos
 gem 'plyr-rails'
+# Use Browser for different devices
+gem 'browser'
 
 # JS runtime for compiling assets
 gem 'mini_racer'

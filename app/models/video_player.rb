@@ -6,6 +6,7 @@ class VideoPlayer < MediaItem
 
   # CarrierWave Uploader
   mount_uploader :video, VideoUploader
+  mount_uploader :mobile_video, MobileVideoUploader
   mount_uploader :thumbnail, ThumbnailUploader
 
   def thumbnail_url
