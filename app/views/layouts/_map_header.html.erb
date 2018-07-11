@@ -150,7 +150,7 @@
       $("a.maintainHover").removeClass("maintainHover");
   });
 
-  var typeaheadData = JSON.parse('<%= @typeahead_data.to_json.html_safe %>');
+ var typeaheadData = <%= raw(@typeahead_data.as_json) %>;
 
   $(document).ready(() => {
     $.typeahead({
