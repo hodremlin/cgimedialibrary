@@ -17,7 +17,7 @@ ActiveAdmin.register Banner do
       input :pnotes_id, :label => "PNotes Number"
       input :business_name, :label => "Business Name"
       input :vertical_id, as: :select, collection: Vertical.all
-      input :tag_list, :label => "Tags"
+      input :tag_list, :label => "Tags", input_html: { value: f.object.tag_list.join(', ') }
       input :thumbnail, :label => "Upload Thumbnail"
       input :banner, :label => "Upload Banner Image"
       input :presentation_zone_url, :label => "Presentation Zone"

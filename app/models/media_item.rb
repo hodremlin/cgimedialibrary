@@ -9,6 +9,7 @@ class MediaItem < ActiveRecord::Base
   acts_as_taggable
 
   def self.search(search)
+    tables = descendants
     where("title LIKE ?", "%#{search}%")
   end
   
