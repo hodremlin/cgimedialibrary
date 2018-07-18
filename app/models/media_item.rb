@@ -13,6 +13,10 @@ class MediaItem < ActiveRecord::Base
     where("title LIKE ?", "%#{search}%")
   end
   
+  def slug
+    title.parameterize(separator: '_')
+  end
+  
   def as_json(opts = {})
     super(
       include: {

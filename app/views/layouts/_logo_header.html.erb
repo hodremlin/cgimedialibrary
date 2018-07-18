@@ -34,12 +34,12 @@
           <ul class="dropdown-menu" role="menu">
            
               <% VerticalCategory.all.order(title: 'ASC').each do |category| %>
-               <li data-submenu-id="submenu_<%= category.title %>_verticals" style="border-top: 1px solid #4e4e4e;">
-                <a class="vertical-toggle" data-target="category_<%= category.title %>_verticals" style="padding-top: 10px; padding-bottom: 10px;"><%= category.title %></a>
+               <li data-submenu-id="submenu_<%= category.id %>_verticals" style="border-top: 1px solid #4e4e4e;">
+                <a class="vertical-toggle" data-target="category_<%= category.id %>_verticals" style="padding-top: 10px; padding-bottom: 10px;"><%= category.title %></a>
 
-    				  	<div id="submenu_<%= category.title %>_verticals" class="popover" style="width: 400px; padding-top: 10px; padding-bottom: 10px;">
+    				  	<div id="submenu_<%= category.id %>_verticals" class="popover" style="width: 400px; padding-top: 10px; padding-bottom: 10px;">
 
-                    <ul id="category_<%= category.title %>_verticals" style="padding-left: 0px; margin-top: 7px;">
+                    <ul id="category_<%= category.id %>_verticals" style="padding-left: 0px; margin-top: 7px;">
             					<% category.verticals.each do |vertical| %>
             						<li class="cat-toggle">
             							<%= link_to vertical.title, params.merge(vertical: vertical.title) %>
