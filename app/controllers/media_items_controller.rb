@@ -45,7 +45,10 @@ class MediaItemsController < ApplicationController
     if params[:search]
       @items = MediaItem.search(params[:search]).order("created_at DESC")
     else
-      @items = MediaItem.descendants.map { |klass| filtered_media_items(klass) }.flatten.sort_by(&:created_at)
+      @items = MediaItem.descendants.map do |klass|
+        byebug
+        filtered_media_items(klass)
+      end.flatten.sort_by(&:created_at)
     end
   end
   

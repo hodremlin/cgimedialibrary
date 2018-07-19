@@ -20,7 +20,9 @@ pidfile    pidfile_location
 state_path state_path_location
 
 # Logging
-stdout_redirect "#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true
+if %w[staging production].include?(rails_env)
+  stdout_redirect "#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true
+end
 
 on_worker_boot do
   require 'active_record'
