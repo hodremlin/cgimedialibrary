@@ -8,8 +8,9 @@
         <% end %>
         <% if user_signed_in? %>
           <li><%= link_to "My Favorites",   '/favorites', class: "white-link" %></li>
+          <li class="featured visible-xs"><%= link_to "Featured", featured_path, class: "white-link" %></li>
         <% end %>
-          <li class="featured"><%= link_to "Featured", featured_path, class: "white-link" %></li>
+          <li class="featured hidden-xs"><%= link_to "Featured", featured_path, class: "white-link" %></li>
         <% if user_signed_in? %>
           <li class="hidden-xs"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "white-link" %> </li>
         <% end %>
