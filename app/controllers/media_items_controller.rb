@@ -1,9 +1,6 @@
 class MediaItemsController < ApplicationController
   before_action :get_typeahead_data
 
-  def home
-    @items = MediaItem.descendants.map { |klass| filtered_media_items(klass) }.flatten.sort_by(&:created_at)
-  end
   
   def videos
     @videos = filtered_media_items(VideoPlayer)

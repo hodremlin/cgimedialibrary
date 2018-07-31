@@ -63,6 +63,9 @@ gem 'puma'
 # Pretty print ruby objects
 gem 'awesome_print'
 
+# use rollbar to detect errors
+gem 'rollbar'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -75,6 +78,6 @@ group :development do
   gem 'rubocop'
   gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # gem 'web-console', '~> 2.0'
 end
 
