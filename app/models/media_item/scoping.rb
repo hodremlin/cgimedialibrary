@@ -33,7 +33,7 @@ class MediaItem < ActiveRecord::Base
         scope :with_keywords, lambda { |keywords|
           return if keywords.blank?
 
-          includes(:tags).where("#{self.table_name}.title LIKE ? OR LOWER(tags.name) LIKE ? OR #{self.table_name}.pnotes_id LIKE ?", "%#{keywords}%", "%#{keywords.downcase}%", keywords).references(:tags)
+         includes(:tags, :vertical).where("#{self.table_name}.title LIKE ? OR LOWER(tags.name) LIKE ? OR #{self.table_name}.pnotes_id LIKE ? OR verticals.title LIKE ?", "%#{keywords}%", "%#{keywords.downcase}%", keywords, "%#{keywords}%").references(:tags, :vertical) 
         }
 
         scope :filtered, lambda { |category, vertical, tags, keywords, featured|
