@@ -1,5 +1,6 @@
 class MediaItem < ActiveRecord::Base
   self.abstract_class = true
+  self.per_page = 20
 
   belongs_to :user
   belongs_to :vertical

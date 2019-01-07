@@ -20,3 +20,4 @@
 //= require vendor/video.min
 //= require vendor/videojs-brand.min
 //= require vendor/videojs-dock.min
+//= require pagination.js.coffee

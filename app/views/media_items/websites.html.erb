@@ -1,6 +1,11 @@
  <%= render 'layouts/websites_header' %>
- <div class="row">
+ <div id="websites" class="row">
   <% @websites.reverse.each do | website | %>
     <%= render partial: 'shared/website_item', locals: { website: website } %>
   <% end %>
 </div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @websites %>
+</div>
+

@@ -4,3 +4,7 @@
     <%= render partial: 'shared/reviewtube_item', locals: { reviewtube: reviewtube } %>
   <% end %>
 </div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @reviewtubes %>
+</div>

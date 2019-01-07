@@ -4,3 +4,7 @@
     <%= render partial: 'shared/video_player_item', locals: { video_player: video_player } %>
   <% end %>
 </div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @videos %>
+</div>

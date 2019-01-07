@@ -1,5 +1,4 @@
 ActiveAdmin.setup do |config|
-
   config.site_title = "CGI Media Library"
 
   config.namespace :admin do |admin|

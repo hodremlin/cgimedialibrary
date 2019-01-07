@@ -4,3 +4,7 @@
     <%= render partial: 'shared/map_item', locals: { map: map } %>
   <% end %>
 </div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @maps %>
+</div>

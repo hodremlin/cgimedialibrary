@@ -149,21 +149,4 @@
       $(".popover").css("display", "none");
       $("a.maintainHover").removeClass("maintainHover");
   });
-
-  var typeaheadData = <%= raw(@typeahead_data.as_json) %>;
-
-  $(document).ready(() => {
-    $.typeahead({
-      input: '#search',
-      order: "desc",
-      source: {
-        data: typeaheadData
-      },
-      callback: {
-        onInit: function (node) {
-          console.log('Typeahead Initiated on ' + node.selector);
-        }
-      }
-    });
-  });
 </script>
