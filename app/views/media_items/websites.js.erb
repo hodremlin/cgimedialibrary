@@ -1,4 +1,4 @@
-$('#websites').append('<%= j render partial: 'shared/websites_media_items' %>');
+$('#websites').append('<%= j render partial: 'shared/website_media_items' %>');
 <% if @websites.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @websites %>');
 <% else %>
