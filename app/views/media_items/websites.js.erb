@@ -1,0 +1,7 @@
+$('#websites').append('<%= j render partial: 'shared/websites_media_items' %>');
+<% if @websites.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @websites %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

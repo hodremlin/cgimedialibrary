@@ -1,8 +1,7 @@
 <%= render 'layouts/video_header' %>
- <div class="row">
-  <% @videos.reverse.each do | video_player | %>
-    <%= render partial: 'shared/video_player_item', locals: { video_player: video_player } %>
-  <% end %>
+
+<div id="videos" class="row">
+  <%= render partial: 'shared/video_media_items' %>
 </div>
 
 <div id="infinite-scrolling">

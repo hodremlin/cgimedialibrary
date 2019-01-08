@@ -1,0 +1,7 @@
+$('#videos').append('<%= j render partial: 'shared/video_media_items' %>');
+<% if @videos.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @videos %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

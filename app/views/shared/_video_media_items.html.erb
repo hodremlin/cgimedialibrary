@@ -1,0 +1,3 @@
+<% @videos.reverse.each do | video_player | %>
+  <%= render partial: "shared/video_player_item" , locals: { video_player: video_player } %>
+<% end %>

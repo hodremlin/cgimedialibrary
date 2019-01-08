@@ -2,8 +2,8 @@ class MediaItemsController < ApplicationController
 
 
   def videos
-    @videos = filtered_media_items(VideoPlayer)
-    @videos = VideoPlayer.paginate(page: params[:page], per_page: 2).order('created_at DESC')
+    @videos = filtered_media_items(VideoPlayer).paginate(page: params[:page], per_page: 20).order('created_at DESC')
+    
     respond_to do |format|
       format.html
       format.js
@@ -11,23 +11,19 @@ class MediaItemsController < ApplicationController
   end
   
   def logos
-    @logos = filtered_media_items(Logo)
-    @logos = Logo.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+    @logos = filtered_media_items(Logo).paginate(page: params[:page], per_page: 20).order('created_at DESC')
   end
   
   def social
-    @socials = filtered_media_items(Social)
-    @socials = Social.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+    @socials = filtered_media_items(Social).paginate(page: params[:page], per_page: 20).order('created_at DESC')
   end
   
   def maps
-    @maps = filtered_media_items(Map)
-    @maps = Map.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+    @maps = filtered_media_items(Map).paginate(page: params[:page], per_page: 20).order('created_at DESC')
   end
   
   def banners
-    @banners = filtered_media_items(Banner)
-    @banners = Banner.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+    @banners = filtered_media_items(Banner).paginate(page: params[:page], per_page: 20).order('created_at DESC')
   end
   
   def featured
@@ -35,8 +31,7 @@ class MediaItemsController < ApplicationController
   end
   
   def websites
-    @websites = filtered_media_items(Website)
-    @websites = Website.paginate(page: params[:page], per_page: 12).order('created_at DESC')
+    @websites = filtered_media_items(Website).paginate(page: params[:page], per_page: 20).order('created_at DESC')
     respond_to do |format|
       format.html
       format.js
@@ -44,8 +39,7 @@ class MediaItemsController < ApplicationController
   end
   
   def reviewtube
-    @reviewtubes = filtered_media_items(Reviewtube)
-    @reviewtubes = Reviewtube.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+    @reviewtubes = filtered_media_items(Reviewtube).paginate(page: params[:page], per_page: 20).order('created_at DESC')
   end
   
   def favorites
@@ -58,7 +52,12 @@ class MediaItemsController < ApplicationController
     else
       @items = MediaItem.descendants.map do |klass|
         filtered_media_items(klass)
-      end.flatten.sort_by(&:created_at)
+      end.flatten.sort_by(&:created_at).paginate(page: params[:page], per_page: 20)
+    end
+  
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
   
@@ -70,7 +69,7 @@ class MediaItemsController < ApplicationController
     klass.filtered(params[:category], params[:vertical], params[:tag], params[:keywords], featured)
   end
   
-  def get_typeahead_data
-    @typeahead_data = MediaItem.descendants.map { |klass| klass.all.pluck(:title) }.flatten.sort
-  end
+  # def get_typeahead_data
+  #  @typeahead_data = MediaItem.descendants.map { |klass| klass.all.pluck(:title) }.flatten.sort
+  #end
 end

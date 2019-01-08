@@ -1,0 +1,3 @@
+  <% @websites.reverse.each do | website | %>
+    <%= render partial: 'shared/website_item', locals: { website: website } %>
+  <% end %>

@@ -1,9 +1,9 @@
 <%= render 'layouts/index_header' %>
 
-<div class="row">
-  <% @items.reverse.each do | item | %>
-    <%= render partial: "shared/#{item.class.name.underscore}_item", locals: { :"#{item.class.name.underscore}" => item } %>
-  <% end %>
+<div id="items" class="row">
+  <%= render partial: 'shared/media_items' %>
 </div>
 
-
+<div id="infinite-scrolling">
+  <%= will_paginate @items %>
+</div>
