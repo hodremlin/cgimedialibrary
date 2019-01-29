@@ -52,7 +52,7 @@ class MediaItemsController < ApplicationController
     else
       @items = MediaItem.descendants.map do |klass|
         filtered_media_items(klass)
-      end.flatten.sort_by(&:created_at).paginate(page: params[:page], per_page: 20)
+      end.flatten.sort{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page: 20)
     end
   
     respond_to do |format|
